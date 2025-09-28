@@ -1,0 +1,58 @@
+# Configuración para GitHub Pages
+title: Teck-yo - Transformamos Ideas en Realidad
+description: Sitio web profesional para Teck-yo, empresa de desarrollo de software
+author: Teck-yo
+email: contacto@teck-yo.com
+
+# Configuración del sitio
+baseurl: ""
+url: "https://tu-usuario.github.io/tu-repositorio"
+
+# Configuración de GitHub Pages
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Configuración de Jekyll
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Configuración de la página
+permalink: /:title/
+paginate: 5
+paginate_path: /page:num/
+
+# Configuración de colecciones
+collections:
+  posts:
+    output: true
+    permalink: /:collection/:name/
+
+# Configuración de datos
+data_dir: _data
+plugins_dir: _plugins
+layouts_dir: _layouts
+includes_dir: _includes
+
+# Configuración de archivos estáticos
+static_files:
+  - README.md
+  - .gitignore
+  - _config.yml
+
+# Configuración de metadatos
+social:
+  name: Teck-yo
+  links:
+    - https://wa.me/59163806104
+
+# Configuración de SEO
+seo:
+  type: Organization
+  name: Teck-yo
+  description: Transformamos Ideas en Realidad
+  url: https://tu-usuario.github.io/tu-repositorio
+  logo: /logo.jpg
+  sameAs:
+    - https://wa.me/59163806104
