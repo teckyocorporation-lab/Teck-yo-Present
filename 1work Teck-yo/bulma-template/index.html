@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online - Bulma</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: transform 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar is-white has-shadow" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <h1 class="title is-4 has-text-primary">MiTienda</h1>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item">Inicio</a>
+                <a class="navbar-item">Productos</a>
+                <a class="navbar-item">Categorías</a>
+                <a class="navbar-item">Contacto</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <button class="button is-white">
+                            <span class="icon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </button>
+                        <button class="button is-white">
+                            <span class="icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </span>
+                            <span class="tag is-danger is-small" style="position: absolute; top: -5px; right: -5px;">3</span>
+                        </button>
+                        <a class="button is-primary">
+                            <strong>Iniciar Sesión</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero hero-gradient is-large">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered">
+                    <div class="column is-6">
+                        <h1 class="title is-1 has-text-white">Bienvenido a Nuestra Tienda</h1>
+                        <h2 class="subtitle is-4 has-text-white">Descubre productos increíbles con la mejor calidad y precios competitivos</h2>
+                        <button class="button is-white is-large">Ver Productos</button>
+                    </div>
+                    <div class="column is-6">
+                        <img src="https://via.placeholder.com/600x400" alt="Hero Image" class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered mb-6">Productos Destacados</h2>
+            <div class="columns is-multiline">
+                <div class="column is-3">
+                    <div class="card card-hover">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://via.placeholder.com/300x200" alt="Producto">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-5">Producto 1</p>
+                                    <p class="subtitle is-6 has-text-grey">Descripción del producto</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="level">
+                                    <div class="level-left">
+                                        <div class="level-item">
+                                            <span class="title is-4 has-text-primary">$99.99</span>
+                                        </div>
+                                    </div>
+                                    <div class="level-right">
+                                        <div class="level-item">
+                                            <button class="button is-primary">Agregar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-3">
+                    <div class="card card-hover">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://via.placeholder.com/300x200" alt="Producto">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-5">Producto 2</p>
+                                    <p class="subtitle is-6 has-text-grey">Descripción del producto</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="level">
+                                    <div class="level-left">
+                                        <div class="level-item">
+                                            <span class="title is-4 has-text-primary">$149.99</span>
+                                        </div>
+                                    </div>
+                                    <div class="level-right">
+                                        <div class="level-item">
+                                            <button class="button is-primary">Agregar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-3">
+                    <div class="card card-hover">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://via.placeholder.com/300x200" alt="Producto">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-5">Producto 3</p>
+                                    <p class="subtitle is-6 has-text-grey">Descripción del producto</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="level">
+                                    <div class="level-left">
+                                        <div class="level-item">
+                                            <span class="title is-4 has-text-primary">$79.99</span>
+                                        </div>
+                                    </div>
+                                    <div class="level-right">
+                                        <div class="level-item">
+                                            <button class="button is-primary">Agregar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-3">
+                    <div class="card card-hover">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://via.placeholder.com/300x200" alt="Producto">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-5">Producto 4</p>
+                                    <p class="subtitle is-6 has-text-grey">Descripción del producto</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="level">
+                                    <div class="level-left">
+                                        <div class="level-item">
+                                            <span class="title is-4 has-text-primary">$199.99</span>
+                                        </div>
+                                    </div>
+                                    <div class="level-right">
+                                        <div class="level-item">
+                                            <button class="button is-primary">Agregar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section has-background-light">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-4 has-text-centered">
+                    <div class="box has-background-white">
+                        <div class="has-text-centered mb-4">
+                            <span class="icon is-large feature-icon">
+                                <i class="fas fa-shipping-fast fa-3x"></i>
+                            </span>
+                        </div>
+                        <h3 class="title is-4">Envío Gratis</h3>
+                        <p class="subtitle is-6">Envío gratuito en compras superiores a $50</p>
+                    </div>
+                </div>
+                <div class="column is-4 has-text-centered">
+                    <div class="box has-background-white">
+                        <div class="has-text-centered mb-4">
+                            <span class="icon is-large feature-icon">
+                                <i class="fas fa-shield-alt fa-3x"></i>
+                            </span>
+                        </div>
+                        <h3 class="title is-4">Compra Segura</h3>
+                        <p class="subtitle is-6">Protección SSL y garantía de devolución</p>
+                    </div>
+                </div>
+                <div class="column is-4 has-text-centered">
+                    <div class="box has-background-white">
+                        <div class="has-text-centered mb-4">
+                            <span class="icon is-large feature-icon">
+                                <i class="fas fa-headset fa-3x"></i>
+                            </span>
+                        </div>
+                        <h3 class="title is-4">Soporte 24/7</h3>
+                        <p class="subtitle is-6">Atención al cliente disponible siempre</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section hero-gradient">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-6">
+                    <h3 class="title is-3 has-text-white">¡Mantente al día con nuestras ofertas!</h3>
+                    <p class="subtitle is-5 has-text-white">Suscríbete a nuestro newsletter</p>
+                </div>
+                <div class="column is-6">
+                    <div class="field has-addons">
+                        <div class="control is-expanded">
+                            <input class="input is-large" type="email" placeholder="Tu email">
+                        </div>
+                        <div class="control">
+                            <button class="button is-white is-large">Suscribirse</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer has-background-dark has-text-white">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-3">
+                    <h5 class="title is-5 has-text-white">MiTienda</h5>
+                    <p class="has-text-grey-light">Tu tienda de confianza para productos de calidad</p>
+                </div>
+                <div class="column is-3">
+                    <h6 class="title is-6 has-text-white">Enlaces</h6>
+                    <ul>
+                        <li><a href="#" class="has-text-grey-light">Inicio</a></li>
+                        <li><a href="#" class="has-text-grey-light">Productos</a></li>
+                        <li><a href="#" class="has-text-grey-light">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="column is-3">
+                    <h6 class="title is-6 has-text-white">Categorías</h6>
+                    <ul>
+                        <li><a href="#" class="has-text-grey-light">Electrónicos</a></li>
+                        <li><a href="#" class="has-text-grey-light">Ropa</a></li>
+                        <li><a href="#" class="has-text-grey-light">Hogar</a></li>
+                    </ul>
+                </div>
+                <div class="column is-3">
+                    <h6 class="title is-6 has-text-white">Contacto</h6>
+                    <p class="has-text-grey-light">Email: info@mitienda.com</p>
+                    <p class="has-text-grey-light">Tel: +1 234 567 890</p>
+                </div>
+            </div>
+            <hr class="has-background-grey-dark">
+            <div class="has-text-centered">
+                <p class="has-text-grey-light">&copy; 2024 MiTienda. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar burger functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

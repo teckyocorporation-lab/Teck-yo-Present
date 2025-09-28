@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Almacén - Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div class="flex items-center">
+                    <i class="fas fa-warehouse text-3xl text-blue-600 mr-3"></i>
+                    <h1 class="text-3xl font-bold text-blue-600">WarehousePro</h1>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Dashboard</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Inventario</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Entradas</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Salidas</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Reportes</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                        <i class="fas fa-plus mr-2"></i>Nuevo Producto
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-5xl font-bold mb-6">Sistema de Gestión de Almacén</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Controla tu inventario con precisión y eficiencia</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                    <i class="fas fa-boxes text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Control de Stock</h3>
+                    <p>Gestiona inventario en tiempo real</p>
+                </div>
+                <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                    <i class="fas fa-truck text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Movimientos</h3>
+                    <p>Registra entradas y salidas</p>
+                </div>
+                <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                    <i class="fas fa-chart-pie text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Reportes</h3>
+                    <p>Análisis detallado de inventario</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-center mb-12">Resumen del Almacén</h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-boxes text-blue-600 text-2xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800">1,247</h4>
+                    <p class="text-gray-600">Total Productos</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-exclamation-triangle text-red-600 text-2xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800">23</h4>
+                    <p class="text-gray-600">Stock Bajo</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-dollar-sign text-green-600 text-2xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800">$45,230</h4>
+                    <p class="text-gray-600">Valor Total</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-exchange-alt text-purple-600 text-2xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800">156</h4>
+                    <p class="text-gray-600">Movimientos Hoy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-center mb-12">Inventario de Productos</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-semibold">Laptop Dell XPS 13</h4>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">En Stock</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Stock:</span>
+                                <span class="font-semibold">12 unidades</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Precio:</span>
+                                <span class="font-semibold">$1,299.99</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Categoría:</span>
+                                <span class="font-semibold">Electrónicos</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Ubicación:</span>
+                                <span class="font-semibold">A-12-B</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex space-x-2">
+                            <button class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                <i class="fas fa-edit mr-2"></i>Editar
+                            </button>
+                            <button class="flex-1 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                                <i class="fas fa-eye mr-2"></i>Ver
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-semibold">Mouse Logitech MX</h4>
+                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Stock Bajo</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Stock:</span>
+                                <span class="font-semibold">2 unidades</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Precio:</span>
+                                <span class="font-semibold">$79.99</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Categoría:</span>
+                                <span class="font-semibold">Accesorios</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Ubicación:</span>
+                                <span class="font-semibold">B-05-C</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex space-x-2">
+                            <button class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                <i class="fas fa-edit mr-2"></i>Editar
+                            </button>
+                            <button class="flex-1 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                                <i class="fas fa-eye mr-2"></i>Ver
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-semibold">Monitor Samsung 24"</h4>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">En Stock</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Stock:</span>
+                                <span class="font-semibold">8 unidades</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Precio:</span>
+                                <span class="font-semibold">$199.99</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Categoría:</span>
+                                <span class="font-semibold">Monitores</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Ubicación:</span>
+                                <span class="font-semibold">C-08-A</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex space-x-2">
+                            <button class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                <i class="fas fa-edit mr-2"></i>Editar
+                            </button>
+                            <button class="flex-1 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                                <i class="fas fa-eye mr-2"></i>Ver
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-barcode text-blue-600 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Códigos de Barras</h4>
+                    <p class="text-gray-600">Sistema de códigos de barras para identificación rápida</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Ubicaciones</h4>
+                    <p class="text-gray-600">Control de ubicaciones y estanterías</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-bell text-blue-600 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Alertas</h4>
+                    <p class="text-gray-600">Notificaciones automáticas de stock bajo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h5 class="text-xl font-bold mb-4">WarehousePro</h5>
+                    <p class="text-gray-400">Sistema de gestión de almacén profesional</p>
+                </div>
+                <div>
+                    <h6 class="font-semibold mb-4">Funciones</h6>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Inventario</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Entradas</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Salidas</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Reportes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-semibold mb-4">Categorías</h6>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Electrónicos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Accesorios</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Monitores</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-semibold mb-4">Contacto</h6>
+                    <p class="text-gray-400">Email: info@warehousepro.com</p>
+                    <p class="text-gray-400">Tel: +1 234 567 890</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 WarehousePro. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

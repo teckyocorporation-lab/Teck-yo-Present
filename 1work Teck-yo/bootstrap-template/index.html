@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online - Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: transform 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
+        <div class="container">
+            <a class="navbar-brand text-primary" href="#">MiTienda</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categorías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-secondary me-3">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="btn btn-outline-primary me-3 position-relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+                    </button>
+                    <button class="btn btn-primary">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section text-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Bienvenido a Nuestra Tienda</h1>
+                    <p class="lead mb-4">Descubre productos increíbles con la mejor calidad y precios competitivos</p>
+                    <button class="btn btn-light btn-lg">Ver Productos</button>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://via.placeholder.com/600x400" alt="Hero Image" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Productos Destacados</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-hover shadow">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Producto 1</h5>
+                            <p class="card-text text-muted">Descripción del producto</p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="h4 text-primary mb-0">$99.99</span>
+                                    <button class="btn btn-primary">Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-hover shadow">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Producto 2</h5>
+                            <p class="card-text text-muted">Descripción del producto</p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="h4 text-primary mb-0">$149.99</span>
+                                    <button class="btn btn-primary">Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-hover shadow">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Producto 3</h5>
+                            <p class="card-text text-muted">Descripción del producto</p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="h4 text-primary mb-0">$79.99</span>
+                                    <button class="btn btn-primary">Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-hover shadow">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Producto">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Producto 4</h5>
+                            <p class="card-text text-muted">Descripción del producto</p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="h4 text-primary mb-0">$199.99</span>
+                                    <button class="btn btn-primary">Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4 text-center">
+                    <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-shipping-fast text-primary fs-3"></i>
+                    </div>
+                    <h4>Envío Gratis</h4>
+                    <p class="text-muted">Envío gratuito en compras superiores a $50</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-shield-alt text-primary fs-3"></i>
+                    </div>
+                    <h4>Compra Segura</h4>
+                    <p class="text-muted">Protección SSL y garantía de devolución</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-headset text-primary fs-3"></i>
+                    </div>
+                    <h4>Soporte 24/7</h4>
+                    <p class="text-muted">Atención al cliente disponible siempre</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="mb-0">¡Mantente al día con nuestras ofertas!</h3>
+                    <p class="mb-0">Suscríbete a nuestro newsletter</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Tu email">
+                        <button class="btn btn-light" type="button">Suscribirse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <h5 class="mb-3">MiTienda</h5>
+                    <p class="text-muted">Tu tienda de confianza para productos de calidad</p>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="mb-3">Enlaces</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Inicio</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Productos</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="mb-3">Categorías</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Electrónicos</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Ropa</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Hogar</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="mb-3">Contacto</h6>
+                    <p class="text-muted mb-1">Email: info@mitienda.com</p>
+                    <p class="text-muted mb-1">Tel: +1 234 567 890</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="text-muted mb-0">&copy; 2024 MiTienda. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

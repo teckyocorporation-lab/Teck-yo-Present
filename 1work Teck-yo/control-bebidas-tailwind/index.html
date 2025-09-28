@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Calidad de Bebidas - Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div class="flex items-center">
+                    <i class="fas fa-wine-bottle text-3xl text-green-600 mr-3"></i>
+                    <h1 class="text-3xl font-bold text-green-600">QualityDrink</h1>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-green-600 font-medium">Dashboard</a>
+                    <a href="#" class="text-gray-700 hover:text-green-600 font-medium">Calidad</a>
+                    <a href="#" class="text-gray-700 hover:text-green-600 font-medium">Inspecciones</a>
+                    <a href="#" class="text-gray-700 hover:text-green-600 font-medium">Certificaciones</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                        <i class="fas fa-plus mr-2"></i>Nueva Inspección
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-gradient-to-r from-green-600 to-emerald-600 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-5xl font-bold mb-6">Control de Calidad de Bebidas</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Garantiza la calidad y estado óptimo de tus bebidas</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                    <i class="fas fa-thermometer-half text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Control de Temperatura</h3>
+                    <p>Monitorea condiciones de conservación</p>
+                </div>
+                <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                    <i class="fas fa-calendar-check text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Fechas de Vencimiento</h3>
+                    <p>Control de caducidad y rotación</p>
+                </div>
+                <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                    <i class="fas fa-certificate text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Certificaciones</h3>
+                    <p>Estándares de calidad garantizados</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-center mb-12">Resumen de Calidad</h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clipboard-check text-blue-600 text-2xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800">156</h4>
+                    <p class="text-gray-600">Inspecciones Hoy</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-exclamation-triangle text-red-600 text-2xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800">8</h4>
+                    <p class="text-gray-600">Bebidas Vencidas</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-check-circle text-green-600 text-2xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800">98%</h4>
+                    <p class="text-gray-600">Calidad Óptima</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-thermometer-half text-purple-600 text-2xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-800">18°C</h4>
+                    <p class="text-gray-600">Temperatura Promedio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-center mb-12">Control de Calidad de Bebidas</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-semibold">Cerveza Corona</h4>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Calidad Óptima</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Temperatura:</span>
+                                <span class="font-semibold">4°C</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Vencimiento:</span>
+                                <span class="font-semibold">15/03/2024</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Estado:</span>
+                                <span class="font-semibold">Fresco</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Última Inspección:</span>
+                                <span class="font-semibold">Hoy 14:30</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex space-x-2">
+                            <button class="flex-1 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                                <i class="fas fa-clipboard-check mr-2"></i>Inspeccionar
+                            </button>
+                            <button class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                <i class="fas fa-chart-line mr-2"></i>Historial
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-semibold">Vodka Absolut</h4>
+                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Vencido</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Temperatura:</span>
+                                <span class="font-semibold">22°C</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Vencimiento:</span>
+                                <span class="font-semibold">10/01/2024</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Estado:</span>
+                                <span class="font-semibold">Vencido</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Última Inspección:</span>
+                                <span class="font-semibold">Ayer 16:45</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex space-x-2">
+                            <button class="flex-1 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                                <i class="fas fa-clipboard-check mr-2"></i>Inspeccionar
+                            </button>
+                            <button class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                <i class="fas fa-chart-line mr-2"></i>Historial
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-semibold">Whisky Jack Daniels</h4>
+                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Por Vencer</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Temperatura:</span>
+                                <span class="font-semibold">18°C</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Vencimiento:</span>
+                                <span class="font-semibold">25/02/2024</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Estado:</span>
+                                <span class="font-semibold">Por Vencer</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Última Inspección:</span>
+                                <span class="font-semibold">Hoy 09:15</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex space-x-2">
+                            <button class="flex-1 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                                <i class="fas fa-clipboard-check mr-2"></i>Inspeccionar
+                            </button>
+                            <button class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                <i class="fas fa-chart-line mr-2"></i>Historial
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h5 class="text-xl font-bold mb-4">QualityDrink</h5>
+                    <p class="text-gray-400">Sistema de control de calidad para bebidas y alimentos</p>
+                </div>
+                <div>
+                    <h6 class="font-semibold mb-4">Funciones</h6>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Calidad</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Inspecciones</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Certificaciones</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-semibold mb-4">Parámetros</h6>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Temperatura</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Vencimiento</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Estado</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-semibold mb-4">Contacto</h6>
+                    <p class="text-gray-400">Email: info@qualitydrink.com</p>
+                    <p class="text-gray-400">Tel: +1 234 567 890</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 QualityDrink. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Calidad de Bebidas - Bulma</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+        .card-hover {
+            transition: transform 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .stats-card {
+            border-left: 4px solid #28a745;
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar is-white has-shadow" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <i class="fas fa-wine-bottle has-text-success mr-2"></i>
+                <h1 class="title is-4 has-text-success">QualityDrink</h1>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item">Dashboard</a>
+                <a class="navbar-item">Calidad</a>
+                <a class="navbar-item">Inspecciones</a>
+                <a class="navbar-item">Certificaciones</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <button class="button is-success">
+                            <span class="icon">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                            <span>Nueva Inspección</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero hero-gradient is-large">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered">
+                    <div class="column is-8">
+                        <h1 class="title is-1 has-text-white">Control de Calidad de Bebidas</h1>
+                        <h2 class="subtitle is-4 has-text-white">Garantiza la calidad y estado óptimo de tus bebidas</h2>
+                    </div>
+                    <div class="column is-4">
+                        <div class="columns is-multiline">
+                            <div class="column is-12">
+                                <div class="box has-background-white has-background-opacity-20">
+                                    <div class="has-text-centered">
+                                        <i class="fas fa-thermometer-half fa-2x mb-3"></i>
+                                        <h6 class="title is-6">Control de Temperatura</h6>
+                                        <p class="is-size-7">Monitorea condiciones de conservación</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-12">
+                                <div class="box has-background-white has-background-opacity-20">
+                                    <div class="has-text-centered">
+                                        <i class="fas fa-calendar-check fa-2x mb-3"></i>
+                                        <h6 class="title is-6">Fechas de Vencimiento</h6>
+                                        <p class="is-size-7">Control de caducidad y rotación</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-12">
+                                <div class="box has-background-white has-background-opacity-20">
+                                    <div class="has-text-centered">
+                                        <i class="fas fa-certificate fa-2x mb-3"></i>
+                                        <h6 class="title is-6">Certificaciones</h6>
+                                        <p class="is-size-7">Estándares de calidad garantizados</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered mb-6">Resumen de Calidad</h2>
+            <div class="columns is-multiline">
+                <div class="column is-3">
+                    <div class="card stats-card">
+                        <div class="card-content has-text-centered">
+                            <div class="has-text-centered mb-4">
+                                <span class="icon is-large feature-icon">
+                                    <i class="fas fa-clipboard-check fa-3x"></i>
+                                </span>
+                            </div>
+                            <h3 class="title is-3">156</h3>
+                            <p class="subtitle is-6">Inspecciones Hoy</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-3">
+                    <div class="card stats-card">
+                        <div class="card-content has-text-centered">
+                            <div class="has-text-centered mb-4">
+                                <span class="icon is-large feature-icon">
+                                    <i class="fas fa-exclamation-triangle fa-3x"></i>
+                                </span>
+                            </div>
+                            <h3 class="title is-3">8</h3>
+                            <p class="subtitle is-6">Bebidas Vencidas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-3">
+                    <div class="card stats-card">
+                        <div class="card-content has-text-centered">
+                            <div class="has-text-centered mb-4">
+                                <span class="icon is-large feature-icon">
+                                    <i class="fas fa-check-circle fa-3x"></i>
+                                </span>
+                            </div>
+                            <h3 class="title is-3">98%</h3>
+                            <p class="subtitle is-6">Calidad Óptima</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-3">
+                    <div class="card stats-card">
+                        <div class="card-content has-text-centered">
+                            <div class="has-text-centered mb-4">
+                                <span class="icon is-large feature-icon">
+                                    <i class="fas fa-thermometer-half fa-3x"></i>
+                                </span>
+                            </div>
+                            <h3 class="title is-3">18°C</h3>
+                            <p class="subtitle is-6">Temperatura Promedio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section has-background-light">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered mb-6">Control de Calidad de Bebidas</h2>
+            <div class="columns is-multiline">
+                <div class="column is-4">
+                    <div class="card card-hover">
+                        <div class="card-content">
+                            <div class="level">
+                                <div class="level-left">
+                                    <div class="level-item">
+                                        <h5 class="title is-5">Cerveza Corona</h5>
+                                    </div>
+                                </div>
+                                <div class="level-right">
+                                    <div class="level-item">
+                                        <span class="tag is-success">Calidad Óptima</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="columns">
+                                    <div class="column is-6">
+                                        <small class="has-text-grey">Temperatura:</small>
+                                        <div class="has-text-weight-bold">4°C</div>
+                                    </div>
+                                    <div class="column is-6">
+                                        <small class="has-text-grey">Vencimiento:</small>
+                                        <div class="has-text-weight-bold">15/03/2024</div>
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column is-6">
+                                        <small class="has-text-grey">Estado:</small>
+                                        <div class="has-text-weight-bold">Fresco</div>
+                                    </div>
+                                    <div class="column is-6">
+                                        <small class="has-text-grey">Última Inspección:</small>
+                                        <div class="has-text-weight-bold">Hoy 14:30</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <button class="button is-success">
+                                    <span class="icon">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </span>
+                                    <span>Inspeccionar</span>
+                                </button>
+                                <button class="button is-primary">
+                                    <span class="icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </span>
+                                    <span>Historial</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="card card-hover">
+                        <div class="card-content">
+                            <div class="level">
+                                <div class="level-left">
+                                    <div class="level-item">
+                                        <h5 class="title is-5">Vodka Absolut</h5>
+                                    </div>
+                                </div>
+                                <div class="level-right">
+                                    <div class="level-item">
+                                        <span class="tag is-danger">Vencido</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="columns">
+                                    <div class="column is-6">
+                                        <small class="has-text-grey">Temperatura:</small>
+                                        <div class="has-text-weight-bold">22°C</div>
+                                    </div>
+                                    <div class="column is-6">
+                                        <small class="has-text-grey">Vencimiento:</small>
+                                        <div class="has-text-weight-bold">10/01/2024</div>
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column is-6">
+                                        <small class="has-text-grey">Estado:</small>
+                                        <div class="has-text-weight-bold">Vencido</div>
+                                    </div>
+                                    <div class="column is-6">
+                                        <small class="has-text-grey">Última Inspección:</small>
+                                        <div class="has-text-weight-bold">Ayer 16:45</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <button class="button is-success">
+                                    <span class="icon">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </span>
+                                    <span>Inspeccionar</span>
+                                </button>
+                                <button class="button is-primary">
+                                    <span class="icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </span>
+                                    <span>Historial</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="card card-hover">
+                        <div class="card-content">
+                            <div class="level">
+                                <div class="level-left">
+                                    <div class="level-item">
+                                        <h5 class="title is-5">Whisky Jack Daniels</h5>
+                                    </div>
+                                </div>
+                                <div class="level-right">
+                                    <div class="level-item">
+                                        <span class="tag is-warning">Por Vencer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="columns">
+                                    <div class="column is-6">
+                                        <small class="has-text-grey">Temperatura:</small>
+                                        <div class="has-text-weight-bold">18°C</div>
+                                    </div>
+                                    <div class="column is-6">
+                                        <small class="has-text-grey">Vencimiento:</small>
+                                        <div class="has-text-weight-bold">25/02/2024</div>
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column is-6">
+                                        <small class="has-text-grey">Estado:</small>
+                                        <div class="has-text-weight-bold">Por Vencer</div>
+                                    </div>
+                                    <div class="column is-6">
+                                        <small class="has-text-grey">Última Inspección:</small>
+                                        <div class="has-text-weight-bold">Hoy 09:15</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <button class="button is-success">
+                                    <span class="icon">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </span>
+                                    <span>Inspeccionar</span>
+                                </button>
+                                <button class="button is-primary">
+                                    <span class="icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </span>
+                                    <span>Historial</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer has-background-dark has-text-white">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-3">
+                    <h5 class="title is-5 has-text-white">QualityDrink</h5>
+                    <p class="has-text-grey-light">Sistema de control de calidad para bebidas y alimentos</p>
+                </div>
+                <div class="column is-3">
+                    <h6 class="title is-6 has-text-white">Funciones</h6>
+                    <ul>
+                        <li><a href="#" class="has-text-grey-light">Calidad</a></li>
+                        <li><a href="#" class="has-text-grey-light">Inspecciones</a></li>
+                        <li><a href="#" class="has-text-grey-light">Certificaciones</a></li>
+                    </ul>
+                </div>
+                <div class="column is-3">
+                    <h6 class="title is-6 has-text-white">Parámetros</h6>
+                    <ul>
+                        <li><a href="#" class="has-text-grey-light">Temperatura</a></li>
+                        <li><a href="#" class="has-text-grey-light">Vencimiento</a></li>
+                        <li><a href="#" class="has-text-grey-light">Estado</a></li>
+                    </ul>
+                </div>
+                <div class="column is-3">
+                    <h6 class="title is-6 has-text-white">Contacto</h6>
+                    <p class="has-text-grey-light">Email: info@qualitydrink.com</p>
+                    <p class="has-text-grey-light">Tel: +1 234 567 890</p>
+                </div>
+            </div>
+            <hr class="has-background-grey-dark">
+            <div class="has-text-centered">
+                <p class="has-text-grey-light">&copy; 2024 QualityDrink. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar burger functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
