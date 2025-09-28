@@ -2,8 +2,21 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="description" content="Teck-yo - Transformamos Ideas en Realidad. Desarrollo de software profesional.">
+  <meta name="keywords" content="desarrollo software, programación, web design, tecnología">
+  <meta name="author" content="Teck-yo">
   <title>Teck-yo - Transformamos Ideas en Realidad</title>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="logo.jpg" as="image">
+  <link rel="preload" href="banner.jpg" as="image">
+  
+  <!-- Performance optimizations -->
+  <meta name="theme-color" content="#4A90E2">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <style>
     * {
       margin: 0;
@@ -13,14 +26,18 @@
 
 
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif;
       background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      background-attachment: fixed;
       min-height: 100vh;
       overflow-x: hidden;
       color: #e8e8e8;
       position: relative;
       margin: 0;
       padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
 
     /* Canvas de efectos */
@@ -165,7 +182,8 @@
       animation: gradientShift 4s ease-in-out infinite, textGlow 2s ease-in-out infinite alternate, logoFloat 3s ease-in-out infinite;
       text-shadow: 0 0 30px rgba(74, 144, 226, 0.5);
       display: inline-block;
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, text-shadow 0.3s ease;
+      will-change: transform, background-position;
     }
 
     .logo .text:hover {
@@ -223,10 +241,11 @@
       border: 1px solid #34495e;
       border-radius: 20px;
       padding: 30px;
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       position: relative;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      will-change: transform, box-shadow, border-color;
     }
 
     .phase-card:hover {
@@ -317,6 +336,40 @@
       color: #b8c5d1;
     }
 
+    /* Performance optimizations for mobile */
+    @media (max-width: 768px) {
+      .logo .text {
+        animation: gradientShift 6s ease-in-out infinite, textGlow 3s ease-in-out infinite alternate, logoFloat 4s ease-in-out infinite;
+      }
+      
+      .phase-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+      
+      .logo-placeholder img {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+    }
+
+    /* Reduced motion for accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .logo .text {
+        animation: none;
+      }
+      
+      .logo .emoji:hover {
+        transform: none;
+      }
+      
+      .phase-card:hover {
+        transform: none;
+      }
+      
+      .logo-placeholder img:hover {
+        transform: none;
+      }
+    }
+
     /* Responsive */
     @media (max-width: 1024px) {
       .logo { font-size: 4rem; }
@@ -351,6 +404,14 @@
       .phase-card { padding: 15px; }
       .container { padding: 0 10px 10px 10px; }
     }
+
+    /* High DPI displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .logo-placeholder img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+    }
   </style>
 </head>
 <body>
@@ -362,7 +423,7 @@
     <!-- Logo -->
     <div class="logo-section">
       <div class="logo-placeholder">
-        <img src="logo.jpg" alt="Logo Teck-yo" loading="lazy">
+        <img src="logo.jpg" alt="Logo Teck-yo" loading="eager" fetchpriority="high">
       </div>
     </div>
 
@@ -424,6 +485,66 @@
   </div>
 
   <script>
+    // ==== Performance Detection System ====
+    class PerformanceManager {
+      constructor() {
+        this.isLowEnd = this.detectLowEndDevice();
+        this.isMobile = this.detectMobile();
+        this.isReducedMotion = this.detectReducedMotion();
+        this.fps = 60;
+        this.targetFPS = this.isLowEnd ? 30 : 60;
+        this.frameSkip = this.isLowEnd ? 2 : 1;
+        this.frameCount = 0;
+        
+        this.optimizeForDevice();
+      }
+
+      detectLowEndDevice() {
+        // Detectar dispositivos de bajo rendimiento
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        const isLowEnd = !gl || 
+          navigator.hardwareConcurrency < 4 || 
+          navigator.deviceMemory < 4 ||
+          /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        return isLowEnd;
+      }
+
+      detectMobile() {
+        return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      }
+
+      detectReducedMotion() {
+        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      }
+
+      optimizeForDevice() {
+        if (this.isReducedMotion) {
+          // Desactivar animaciones para usuarios que prefieren movimiento reducido
+          document.documentElement.style.setProperty('--animation-duration', '0s');
+          document.documentElement.style.setProperty('--transition-duration', '0s');
+        }
+
+        if (this.isLowEnd) {
+          // Reducir calidad de efectos para dispositivos de bajo rendimiento
+          document.documentElement.style.setProperty('--particle-count', '50');
+          document.documentElement.style.setProperty('--neon-lines', '8');
+        } else {
+          document.documentElement.style.setProperty('--particle-count', '100');
+          document.documentElement.style.setProperty('--neon-lines', '15');
+        }
+      }
+
+      shouldSkipFrame() {
+        this.frameCount++;
+        return this.frameCount % this.frameSkip !== 0;
+      }
+    }
+
+    // Initialize performance manager
+    const perfManager = new PerformanceManager();
+
     // ==== Enhanced Particle System ====
     class Star {
       constructor(x, y) {
@@ -646,7 +767,13 @@
 
     function createStars() {
       stars.length = 0;
-      const numStars = Math.min(Math.floor((canvas.width * canvas.height) / 4000), 200);
+      const baseCount = perfManager.isLowEnd ? 30 : 60;
+      const densityFactor = perfManager.isMobile ? 0.7 : 1;
+      const numStars = Math.min(
+        Math.floor((canvas.width * canvas.height) / 6000) * densityFactor, 
+        baseCount
+      );
+      
       for (let i = 0; i < numStars; i++) {
         stars.push(new Star(Math.random() * window.innerWidth, Math.random() * window.innerHeight));
       }
@@ -655,25 +782,35 @@
     function animate() {
       if (!isAnimating) return;
       
+      // Skip frames on low-end devices
+      if (perfManager.shouldSkipFrame()) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
+      
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
       
-      // Update and draw stars
-      for (let i = 0; i < stars.length; i++) {
-        stars[i].update(mouseX, mouseY);
-        stars[i].draw(ctx);
+      // Update and draw stars (optimized loop)
+      const starsLength = stars.length;
+      for (let i = 0; i < starsLength; i++) {
+        const star = stars[i];
+        star.update(mouseX, mouseY);
+        star.draw(ctx);
       }
       
       // Update and draw shooting stars
       for (let i = shootingStars.length - 1; i >= 0; i--) {
-        shootingStars[i].update();
-        shootingStars[i].draw(ctx);
-        if (shootingStars[i].opacity <= 0) {
+        const shootingStar = shootingStars[i];
+        shootingStar.update();
+        shootingStar.draw(ctx);
+        if (shootingStar.opacity <= 0) {
           shootingStars.splice(i, 1);
         }
       }
       
-      // Add new shooting stars occasionally
-      if (Math.random() < 0.003) {
+      // Add new shooting stars occasionally (reduced frequency on mobile)
+      const shootingStarChance = perfManager.isMobile ? 0.001 : 0.003;
+      if (Math.random() < shootingStarChance) {
         shootingStars.push(new ShootingStar());
       }
       
@@ -731,20 +868,26 @@
 
     function createNeonLines() {
       neonLines = [];
-      const numLines = Math.min(20, Math.floor(window.innerWidth / 80));
+      const baseCount = perfManager.isLowEnd ? 8 : 15;
+      const densityFactor = perfManager.isMobile ? 0.6 : 1;
+      const numLines = Math.min(
+        Math.floor(window.innerWidth / 100) * densityFactor,
+        baseCount
+      );
+      
       for (let i = 0; i < numLines; i++) {
         neonLines.push({
           x: Math.random() * window.innerWidth,
           y: Math.random() * window.innerHeight,
-          length: Math.random() * 300 + 100,
-          speed: Math.random() * 2 + 0.8,
+          length: Math.random() * 250 + 80,
+          speed: Math.random() * 1.5 + 0.5,
           angle: Math.random() * Math.PI * 2,
           color: ['#4A90E2', '#7B68EE', '#20B2AA', '#87CEEB', '#6A5ACD', '#4682B4'][Math.floor(Math.random() * 6)],
-          pulseSpeed: Math.random() * 0.05 + 0.01,
+          pulseSpeed: Math.random() * 0.03 + 0.01,
           pulsePhase: Math.random() * Math.PI * 2,
-          thickness: Math.random() * 3 + 1,
+          thickness: Math.random() * 2 + 1,
           trail: [],
-          maxTrailLength: 10
+          maxTrailLength: perfManager.isLowEnd ? 5 : 8
         });
       }
     }
@@ -752,9 +895,16 @@
     function animateNeon() {
       if (!isNeonAnimating) return;
       
+      // Skip frames on low-end devices
+      if (perfManager.shouldSkipFrame()) {
+        neonAnimationId = requestAnimationFrame(animateNeon);
+        return;
+      }
+      
       nctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
       
-      for (let i = 0; i < neonLines.length; i++) {
+      const neonLinesLength = neonLines.length;
+      for (let i = 0; i < neonLinesLength; i++) {
         const line = neonLines[i];
         
         // Update pulse
@@ -765,16 +915,18 @@
         line.x += Math.cos(line.angle) * line.speed;
         line.y += Math.sin(line.angle) * line.speed;
         
-        // Add trail
-        line.trail.push({ 
-          x: line.x, 
-          y: line.y, 
-          intensity: pulseIntensity,
-          angle: line.angle,
-          length: line.length
-        });
-        if (line.trail.length > line.maxTrailLength) {
-          line.trail.shift();
+        // Add trail (simplified for performance)
+        if (!perfManager.isLowEnd) {
+          line.trail.push({ 
+            x: line.x, 
+            y: line.y, 
+            intensity: pulseIntensity,
+            angle: line.angle,
+            length: line.length
+          });
+          if (line.trail.length > line.maxTrailLength) {
+            line.trail.shift();
+          }
         }
         
         if (line.x < -line.length || line.x > window.innerWidth + line.length || 
@@ -784,22 +936,24 @@
           line.angle = Math.random() * Math.PI * 2;
         }
         
-        // Draw trail
-        for (let j = 0; j < line.trail.length; j++) {
-          const trailPoint = line.trail[j];
-          const alpha = (trailPoint.intensity * (j / line.trail.length)) * 0.4;
-          nctx.save();
-          nctx.strokeStyle = line.color;
-          nctx.globalAlpha = alpha;
-          nctx.lineWidth = line.thickness * 0.8;
-          nctx.shadowColor = line.color;
-          nctx.shadowBlur = 8;
-          nctx.beginPath();
-          nctx.moveTo(trailPoint.x, trailPoint.y);
-          nctx.lineTo(trailPoint.x - Math.cos(trailPoint.angle) * trailPoint.length * 0.7, 
-                     trailPoint.y - Math.sin(trailPoint.angle) * trailPoint.length * 0.7);
-          nctx.stroke();
-          nctx.restore();
+        // Draw trail (only on high-end devices)
+        if (!perfManager.isLowEnd) {
+          for (let j = 0; j < line.trail.length; j++) {
+            const trailPoint = line.trail[j];
+            const alpha = (trailPoint.intensity * (j / line.trail.length)) * 0.3;
+            nctx.save();
+            nctx.strokeStyle = line.color;
+            nctx.globalAlpha = alpha;
+            nctx.lineWidth = line.thickness * 0.6;
+            nctx.shadowColor = line.color;
+            nctx.shadowBlur = 5;
+            nctx.beginPath();
+            nctx.moveTo(trailPoint.x, trailPoint.y);
+            nctx.lineTo(trailPoint.x - Math.cos(trailPoint.angle) * trailPoint.length * 0.6, 
+                       trailPoint.y - Math.sin(trailPoint.angle) * trailPoint.length * 0.6);
+            nctx.stroke();
+            nctx.restore();
+          }
         }
         
         // Draw main line
@@ -807,18 +961,20 @@
         nctx.strokeStyle = line.color;
         nctx.lineWidth = line.thickness;
         nctx.shadowColor = line.color;
-        nctx.shadowBlur = 20 * pulseIntensity;
+        nctx.shadowBlur = perfManager.isLowEnd ? 10 : 20 * pulseIntensity;
         nctx.globalAlpha = pulseIntensity;
         nctx.beginPath();
         nctx.moveTo(line.x, line.y);
         nctx.lineTo(line.x - Math.cos(line.angle) * line.length, line.y - Math.sin(line.angle) * line.length);
         nctx.stroke();
         
-        // Add glow effect
-        nctx.lineWidth = line.thickness * 2;
-        nctx.shadowBlur = 40 * pulseIntensity;
-        nctx.globalAlpha = pulseIntensity * 0.3;
-        nctx.stroke();
+        // Add glow effect (simplified on low-end)
+        if (!perfManager.isLowEnd) {
+          nctx.lineWidth = line.thickness * 1.5;
+          nctx.shadowBlur = 30 * pulseIntensity;
+          nctx.globalAlpha = pulseIntensity * 0.2;
+          nctx.stroke();
+        }
         nctx.restore();
       }
       
@@ -945,22 +1101,27 @@
         this.particles = [];
         const colors = ['#4A90E2', '#7B68EE', '#20B2AA', '#87CEEB', '#6A5ACD'];
         
-        // Inner orbit - 4 particles
-        for (let i = 0; i < 4; i++) {
+        // Adjust particle count based on device performance
+        const innerCount = perfManager.isLowEnd ? 2 : 4;
+        const middleCount = perfManager.isLowEnd ? 3 : 6;
+        const outerCount = perfManager.isLowEnd ? 4 : 8;
+        
+        // Inner orbit
+        for (let i = 0; i < innerCount; i++) {
           this.particles.push(new OrbitingParticle(
             100, 100, 35, 0.08, colors[i % colors.length]
           ));
         }
         
-        // Middle orbit - 6 particles
-        for (let i = 0; i < 6; i++) {
+        // Middle orbit
+        for (let i = 0; i < middleCount; i++) {
           this.particles.push(new OrbitingParticle(
             100, 100, 55, -0.05, colors[i % colors.length]
           ));
         }
         
-        // Outer orbit - 8 particles
-        for (let i = 0; i < 8; i++) {
+        // Outer orbit
+        for (let i = 0; i < outerCount; i++) {
           this.particles.push(new OrbitingParticle(
             100, 100, 75, 0.03, colors[i % colors.length]
           ));
@@ -985,12 +1146,21 @@
       animate() {
         if (!this.isActive) return;
         
+        // Skip frames on low-end devices
+        if (perfManager.shouldSkipFrame()) {
+          this.animationId = requestAnimationFrame(() => this.animate());
+          return;
+        }
+        
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
-        this.particles.forEach(particle => {
+        // Optimized loop
+        const particlesLength = this.particles.length;
+        for (let i = 0; i < particlesLength; i++) {
+          const particle = this.particles[i];
           particle.update();
           particle.draw(this.ctx);
-        });
+        }
         
         this.animationId = requestAnimationFrame(() => this.animate());
       }
